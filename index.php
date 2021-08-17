@@ -1,3 +1,19 @@
+<?php
+date_default_timezone_set('Asia/Jakarta');
+// tanggal dan waktu sekarang
+$start_date = new DateTime();
+// tanggal dan waktu yang ditentukan
+$end_date = new DateTime('2021-08-18 10:00:00');
+$since_start = $start_date->diff($end_date);
+
+$jarak_total_hari = $since_start->days;
+$jarak_tahun = $since_start->y;
+$jarak_bulan = $since_start->m;
+$jarak_hari = $since_start->d;
+$jarak_jam = $since_start->h;
+$jarak_menit = $since_start->i;
+$jarak_detik = $since_start->s;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +39,7 @@
 	
 	
 	<div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url('images/gedung.jpg');">
-		<div class="wsize1 bor1 bg1 p-t-175 p-b-45 p-l-15 p-r-15 respon1">
+		<div class="wsize1 bor1 bg1 p-t-130 p-b-0 p-l-15 p-r-15 respon1">
 			<div class="wrappic1">
 				<img src="images/icons/logo_jateng_sm.png" alt="LOGO">
 			</div>
@@ -79,10 +95,10 @@
 			/*Endtime must be > current time*/
 			endtimeYear: 0,
 			endtimeMonth: 0,
-			endtimeDate: 0,
-			endtimeHours: 19,
-			endtimeMinutes: 0,
-			endtimeSeconds: 0,
+			endtimeDate: <?= $jarak_hari ?>,
+			endtimeHours: <?= $jarak_jam ?>,
+			endtimeMinutes:<?= $jarak_menit ?>,
+			endtimeSeconds: <?= $jarak_detik ?>,
 			timeZone: "" 
 			// ex:  timeZone: "America/New_York"
 			//go to " http://momentjs.com/timezone/ " to get timezone
